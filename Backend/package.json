@@ -1,0 +1,30 @@
+{
+  "name": "backend",
+  "version": "1.0.0",
+  "description": "A subscription-based platform where users track golf scores, participate in monthly prize draws, and contribute to charities — combining gamification, rewards, and social impact in a modern web experience.",
+  "homepage": "https://github.com/ShouryaSaran/KineticALtruist#readme",
+  "bugs": {
+    "url": "https://github.com/ShouryaSaran/KineticALtruist/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ShouryaSaran/KineticALtruist.git"
+  },
+  "license": "ISC",
+  "author": "Shourya Saran",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.100.0",
+    "bcryptjs": "^3.0.3",
+    "cookie-parser": "^1.4.7",
+    "cors": "^2.8.6",
+    "dotenv": "^17.3.1",
+    "express": "^5.2.1",
+    "jsonwebtoken": "^9.0.3",
+    "razorpay": "^2.9.6"
+  }
+}

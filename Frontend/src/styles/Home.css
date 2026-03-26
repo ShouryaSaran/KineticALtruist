@@ -1,0 +1,816 @@
+html {
+	scroll-behavior: smooth;
+}
+
+.ka-page {
+	background: #f3f4f8;
+	color: #121521;
+	font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.ka-navbar,
+.ka-hero,
+.ka-section,
+.ka-performance-section,
+.ka-charity,
+.ka-pricing,
+.ka-final-cta,
+.ka-footer {
+	width: min(1120px, calc(100% - 2.5rem));
+	margin-inline: auto;
+}
+
+.ka-navbar {
+	min-height: 92px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.ka-brand {
+	font-size: 1.15rem;
+	font-weight: 700;
+	color: #4338ca;
+}
+
+.ka-nav-links {
+	display: flex;
+	align-items: center;
+	gap: 1.3rem;
+}
+
+.ka-nav-links a,
+.ka-footer nav a {
+	text-decoration: none;
+	color: #5f6377;
+	font-size: 0.82rem;
+	transition: color 0.2s ease;
+}
+
+.ka-nav-links a:hover,
+.ka-footer nav a:hover {
+	color: #4338ca;
+}
+
+.ka-btn {
+	border: 0;
+	border-radius: 999px;
+	padding: 0.72rem 1.35rem;
+	font-size: 0.82rem;
+	cursor: pointer;
+	font-weight: 600;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ka-btn:hover {
+	transform: translateY(-1px);
+}
+
+.ka-btn-primary {
+	background: linear-gradient(90deg, #5b21b6, #6d28d9);
+	color: #ffffff;
+	box-shadow: 0 8px 18px rgba(91, 33, 182, 0.22);
+}
+
+.ka-btn-ghost {
+	background: #ffffff;
+	color: #171923;
+	border: 1px solid #dadcec;
+}
+
+.ka-btn-outline {
+	background: transparent;
+	color: #4338ca;
+	border: 1px solid #a8b2e4;
+	width: 100%;
+}
+
+.ka-btn-dark-outline {
+	background: transparent;
+	border: 1px solid #3d4563;
+	color: #f4f6ff;
+}
+
+.ka-btn-light {
+	background: #f3f4f8;
+	color: #4338ca;
+}
+
+.ka-hero {
+	display: grid;
+	grid-template-columns: 1.1fr 1fr;
+	gap: 2rem;
+	padding: 1.2rem 0 3.25rem;
+}
+
+.ka-hero-left {
+	padding-top: 1rem;
+}
+
+.ka-pill {
+	display: inline-flex;
+	padding: 0.38rem 0.75rem;
+	border-radius: 999px;
+	background: #d9f99d;
+	color: #3f6212;
+	font-size: 0.58rem;
+	font-weight: 800;
+	letter-spacing: 0.09em;
+}
+
+.ka-hero h1 {
+	margin: 1rem 0 0;
+	font-size: clamp(2rem, 5vw, 3.75rem);
+	line-height: 1.03;
+	letter-spacing: -0.02em;
+}
+
+.ka-hero h1 span {
+	display: block;
+	background: linear-gradient(90deg, #4338ca, #2563eb);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+.ka-hero-left p {
+	margin: 1rem 0 0;
+	max-width: 520px;
+	color: #636c87;
+	line-height: 1.65;
+}
+
+.ka-hero-actions {
+	display: flex;
+	align-items: center;
+	gap: 0.85rem;
+	margin-top: 1.4rem;
+}
+
+.ka-social-proof {
+	margin-top: 1.35rem;
+	display: flex;
+	align-items: center;
+	gap: 0.75rem;
+	color: #727b95;
+	font-size: 0.78rem;
+}
+
+.ka-social-proof strong {
+	color: #4f46e5;
+}
+
+.ka-avatar-stack {
+	display: flex;
+	align-items: center;
+}
+
+.ka-avatar-stack img {
+	width: 1.6rem;
+	height: 1.6rem;
+	border-radius: 999px;
+	border: 2px solid #f3f4f8;
+	object-fit: cover;
+	margin-right: -0.4rem;
+}
+
+.ka-performance-card-wrap {
+	display: grid;
+	place-items: center;
+}
+
+.ka-performance-card {
+	width: min(100%, 480px);
+	background: #ececf1;
+	border: 1px solid #d7d9e2;
+	border-radius: 16px;
+	padding: 1.1rem;
+	box-shadow: 0 18px 35px rgba(27, 31, 45, 0.14);
+}
+
+.ka-performance-head {
+	display: flex;
+	align-items: start;
+	justify-content: space-between;
+	gap: 0.75rem;
+}
+
+.ka-performance-head h3 {
+	margin: 0;
+	font-size: 1.1rem;
+}
+
+.ka-performance-head p {
+	margin: 0.2rem 0 0;
+	font-size: 0.72rem;
+	color: #6f7488;
+}
+
+.ka-mini-pill {
+	border-radius: 999px;
+	background: #d9f99d;
+	color: #3f6212;
+	padding: 0.24rem 0.48rem;
+	font-size: 0.62rem;
+	font-weight: 700;
+}
+
+.ka-chart {
+	margin-top: 1rem;
+	display: grid;
+	grid-template-columns: repeat(6, minmax(0, 1fr));
+	align-items: end;
+	gap: 0.3rem;
+	background: #e0e2e8;
+	border-radius: 10px;
+	padding: 0.65rem;
+	min-height: 110px;
+}
+
+.ka-chart .bar {
+	background: #ced2db;
+	border-radius: 4px;
+}
+
+.ka-chart .bar:nth-child(1) {
+	height: 24px;
+}
+
+.ka-chart .bar:nth-child(2) {
+	height: 42px;
+}
+
+.ka-chart .bar:nth-child(3) {
+	height: 66px;
+}
+
+.ka-chart .bar:nth-child(4) {
+	height: 40px;
+}
+
+.ka-chart .bar:nth-child(5) {
+	height: 50px;
+}
+
+.ka-chart .bar:nth-child(6) {
+	height: 34px;
+}
+
+.ka-chart .bar.active {
+	background: #5b21b6;
+}
+
+.ka-performance-footer {
+	margin-top: 0.7rem;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.65rem;
+}
+
+.ka-performance-footer > div {
+	background: #e0e2e8;
+	border-radius: 9px;
+	padding: 0.5rem 0.55rem;
+}
+
+.ka-performance-footer p {
+	margin: 0;
+	color: #76809b;
+	font-size: 0.64rem;
+}
+
+.ka-performance-footer strong {
+	font-size: 1rem;
+	color: #4f46e5;
+}
+
+.ka-stats-bar {
+	border-top: 1px solid #dde0eb;
+	border-bottom: 1px solid #dde0eb;
+	padding: 1.7rem 0;
+	background: #f9fafc;
+	display: grid;
+	grid-template-columns: repeat(4, minmax(0, 1fr));
+	gap: 1rem;
+	text-align: center;
+}
+
+.ka-stats-bar h3 {
+	margin: 0;
+	font-size: 2rem;
+	line-height: 1;
+}
+
+.ka-stats-bar p {
+	margin: 0.35rem 0 0;
+	font-size: 0.78rem;
+	color: #72798e;
+}
+
+.ka-section,
+.ka-performance-section,
+.ka-charity,
+.ka-pricing {
+	padding: 4.7rem 0;
+}
+
+.ka-section-heading {
+	text-align: center;
+	max-width: 670px;
+	margin: 0 auto;
+}
+
+.ka-section-heading h2 {
+	margin: 0;
+	font-size: clamp(1.65rem, 3vw, 2.3rem);
+}
+
+.ka-section-heading p {
+	margin: 0.7rem 0 0;
+	color: #717993;
+	line-height: 1.6;
+}
+
+.ka-grid-3 {
+	margin-top: 2rem;
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 1.25rem;
+}
+
+.ka-card {
+	background: #eeeff4;
+	border: 1px solid #e1e4ef;
+	border-radius: 14px;
+	padding: 1.25rem;
+	text-align: center;
+}
+
+.ka-card-icon {
+	display: inline-grid;
+	place-items: center;
+	width: 2rem;
+	height: 2rem;
+	border-radius: 8px;
+	background: #5b21b6;
+	color: #ffffff;
+	font-weight: 700;
+	margin-bottom: 0.7rem;
+}
+
+.ka-card h3 {
+	margin: 0;
+}
+
+.ka-card p {
+	margin: 0.7rem 0 0;
+	color: #6f7892;
+	line-height: 1.55;
+}
+
+.ka-performance-section {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2.2rem;
+	align-items: center;
+}
+
+.ka-performance-section h2,
+.ka-charity-content h2 {
+	margin: 0;
+	font-size: clamp(1.65rem, 3vw, 2.2rem);
+}
+
+.ka-performance-section > div > p,
+.ka-charity-content > p {
+	margin: 0.9rem 0 0;
+	color: #6f7790;
+	line-height: 1.6;
+}
+
+.ka-bullets {
+	margin-top: 1.35rem;
+	display: grid;
+	gap: 0.85rem;
+}
+
+.ka-bullet {
+	display: flex;
+	gap: 0.8rem;
+	align-items: flex-start;
+}
+
+.ka-bullet > span {
+	width: 1.7rem;
+	height: 1.7rem;
+	border-radius: 7px;
+	display: grid;
+	place-items: center;
+	background: #e7e9f7;
+	color: #4338ca;
+	font-weight: 700;
+	font-size: 0.78rem;
+}
+
+.ka-bullet h3 {
+	margin: 0;
+	font-size: 0.96rem;
+}
+
+.ka-bullet p {
+	margin: 0.2rem 0 0;
+	color: #707893;
+	font-size: 0.9rem;
+	line-height: 1.5;
+}
+
+.ka-jackpot-wrap {
+	position: relative;
+	display: flex;
+	justify-content: center;
+}
+
+.ka-jackpot-card {
+	width: min(100%, 440px);
+	background: #f0f1f6;
+	border: 1px solid #dde1ea;
+	box-shadow: 0 16px 30px rgba(20, 25, 39, 0.12);
+	border-radius: 18px;
+	padding: 1.25rem;
+}
+
+.ka-eyebrow {
+	margin: 0;
+	font-size: 0.66rem;
+	color: #535ef1;
+	letter-spacing: 0.12em;
+	font-weight: 700;
+}
+
+.ka-jackpot-sub {
+	margin: 1rem 0 0;
+	font-size: 0.78rem;
+	color: #737c95;
+}
+
+.ka-jackpot-card h3 {
+	margin: 0.35rem 0 0;
+	font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.ka-jackpot-row {
+	margin-top: 0.55rem;
+	border-radius: 999px;
+	border: 1px solid #dde1ea;
+	background: #f8f9ff;
+	padding: 0.6rem 0.9rem;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	gap: 0.75rem;
+	font-size: 0.86rem;
+}
+
+.ka-jackpot-row span {
+	color: #646f89;
+}
+
+.ka-jackpot-row strong {
+	color: #171b2a;
+}
+
+.ka-jackpot-row.highlight {
+	background: #effee6;
+}
+
+.ka-jackpot-row.highlight strong {
+	color: #4338ca;
+}
+
+.ka-charity {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 2rem;
+	align-items: center;
+}
+
+.ka-charity-image-wrap {
+	border-radius: 14px;
+	overflow: hidden;
+	position: relative;
+	box-shadow: 0 14px 24px rgba(25, 31, 46, 0.14);
+}
+
+.ka-charity-image-wrap img {
+	width: 100%;
+	min-height: 285px;
+	object-fit: cover;
+	display: block;
+}
+
+.ka-image-overlay {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	padding: 0.9rem;
+	background: linear-gradient(180deg, rgba(7, 14, 30, 0), rgba(7, 14, 30, 0.86));
+	color: #f5f6ff;
+}
+
+.ka-image-overlay h3 {
+	margin: 0;
+}
+
+.ka-image-overlay p {
+	margin: 0.4rem 0 0;
+	color: #d5d9e7;
+	line-height: 1.45;
+	font-size: 0.82rem;
+}
+
+.ka-split-card {
+	margin-top: 1.2rem;
+	border: 1px solid #d9deeb;
+	background: #eeeff4;
+	border-radius: 12px;
+	padding: 0.85rem;
+}
+
+.ka-split-head {
+	display: flex;
+	justify-content: space-between;
+	gap: 0.75rem;
+	align-items: center;
+	font-size: 0.86rem;
+}
+
+.ka-split-head strong {
+	color: #4338ca;
+}
+
+.ka-slider {
+	height: 10px;
+	border-radius: 999px;
+	background: #daddeb;
+	overflow: hidden;
+	margin-top: 0.7rem;
+}
+
+.ka-slider-fill {
+	width: 15%;
+	height: 100%;
+	background: linear-gradient(90deg, #4f46e5, #6d28d9);
+}
+
+.ka-tags {
+	margin-top: 0.75rem;
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.45rem;
+}
+
+.ka-tags span {
+	padding: 0.22rem 0.55rem;
+	border-radius: 999px;
+	background: #e4e7f6;
+	color: #4b5070;
+	font-size: 0.7rem;
+	font-weight: 600;
+}
+
+.ka-charity .ka-btn-outline {
+	margin-top: 1rem;
+}
+
+.ka-pricing {
+	width: 100%;
+	max-width: none;
+	margin: 0;
+	background: radial-gradient(circle at 50% 10%, #111f52, #0b1025 62%);
+	color: #f8f9ff;
+}
+
+.ka-pricing > .ka-section-heading,
+.ka-pricing > .ka-pricing-grid {
+	width: min(1120px, calc(100% - 2.5rem));
+	margin-inline: auto;
+}
+
+.ka-section-heading-light p {
+	color: #b9c0df;
+}
+
+.ka-pricing-grid {
+	margin-top: 2rem;
+	display: grid;
+	grid-template-columns: repeat(2, minmax(0, 1fr));
+	gap: 1.2rem;
+}
+
+.ka-price-card {
+	position: relative;
+	border-radius: 20px;
+	border: 1px solid #2e3554;
+	background: linear-gradient(180deg, rgba(38, 47, 80, 0.78), rgba(27, 33, 57, 0.95));
+	padding: 1.3rem;
+}
+
+.ka-price-card h3 {
+	margin: 0;
+	font-size: 1.08rem;
+}
+
+.ka-price {
+	margin: 0.45rem 0 0;
+	font-size: 2.3rem;
+	font-weight: 800;
+	line-height: 1;
+}
+
+.ka-price span {
+	font-size: 0.92rem;
+	font-weight: 500;
+	color: #c4cae6;
+}
+
+.ka-price-card ul {
+	margin: 1rem 0 0;
+	padding: 0;
+	list-style: none;
+	display: grid;
+	gap: 0.65rem;
+}
+
+.ka-price-card li {
+	position: relative;
+	padding-left: 1.5rem;
+	color: #d7dcf2;
+	font-size: 0.9rem;
+}
+
+.ka-price-card li::before {
+	content: "";
+	width: 0.7rem;
+	height: 0.7rem;
+	border-radius: 999px;
+	background: #22c55e;
+	position: absolute;
+	left: 0;
+	top: 0.32rem;
+}
+
+.ka-price-card .ka-btn {
+	margin-top: 1.3rem;
+	width: 100%;
+}
+
+.ka-price-card-highlight {
+	background: linear-gradient(160deg, #4c1d95, #6d28d9);
+	border-color: rgba(176, 146, 255, 0.62);
+}
+
+.ka-highlight-pill {
+	position: absolute;
+	right: 1rem;
+	top: -0.6rem;
+	border-radius: 999px;
+	background: #bef264;
+	color: #365314;
+	font-size: 0.56rem;
+	letter-spacing: 0.09em;
+	font-weight: 800;
+	padding: 0.24rem 0.5rem;
+}
+
+.ka-price-card-highlight li::before {
+	background: #c4b5fd;
+}
+
+.ka-price-card-highlight .ka-price span,
+.ka-price-card-highlight li {
+	color: #f2efff;
+}
+
+.ka-final-cta {
+	padding: 4.5rem 0 3.1rem;
+	text-align: center;
+}
+
+.ka-final-cta h2 {
+	margin: 0;
+	font-size: clamp(2rem, 4vw, 3.4rem);
+	line-height: 1.08;
+}
+
+.ka-final-cta h2 span {
+	background: linear-gradient(90deg, #4f46e5, #9333ea);
+	-webkit-background-clip: text;
+	background-clip: text;
+	color: transparent;
+}
+
+.ka-final-cta p {
+	margin: 0.95rem auto 0;
+	color: #6c738a;
+	max-width: 620px;
+}
+
+.ka-final-cta .ka-btn {
+	margin-top: 1.35rem;
+}
+
+.ka-final-cta small {
+	margin-top: 0.85rem;
+	display: block;
+	color: #9197ab;
+}
+
+.ka-footer {
+	min-height: 86px;
+	padding: 1rem 0 1.8rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+}
+
+.ka-footer > p {
+	font-size: 0.74rem;
+	color: #68708a;
+	margin: 0;
+}
+
+.ka-footer nav {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 0.8rem;
+}
+
+@media (max-width: 1024px) {
+	.ka-hero,
+	.ka-performance-section,
+	.ka-charity {
+		grid-template-columns: 1fr;
+	}
+
+	.ka-performance-card-wrap,
+	.ka-jackpot-wrap {
+		justify-content: flex-start;
+	}
+
+	.ka-grid-3,
+	.ka-stats-bar {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.ka-pricing-grid {
+		grid-template-columns: 1fr;
+	}
+}
+
+@media (max-width: 720px) {
+	.ka-navbar {
+		flex-wrap: wrap;
+		justify-content: center;
+		padding-top: 1rem;
+	}
+
+	.ka-nav-links {
+		width: 100%;
+		justify-content: center;
+		flex-wrap: wrap;
+	}
+
+	.ka-hero-actions {
+		flex-direction: column;
+		align-items: stretch;
+	}
+
+	.ka-stats-bar,
+	.ka-grid-3 {
+		grid-template-columns: 1fr;
+	}
+
+	.ka-footer {
+		flex-direction: column;
+		text-align: center;
+	}
+
+	.ka-navbar,
+	.ka-hero,
+	.ka-section,
+	.ka-performance-section,
+	.ka-charity,
+	.ka-final-cta,
+	.ka-footer {
+		width: min(1120px, calc(100% - 1.5rem));
+	}
+
+	.ka-pricing > .ka-section-heading,
+	.ka-pricing > .ka-pricing-grid {
+		width: min(1120px, calc(100% - 1.5rem));
+	}
+}
