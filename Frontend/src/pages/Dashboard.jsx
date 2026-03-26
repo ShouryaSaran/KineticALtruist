@@ -111,7 +111,7 @@ export default function Dashboard() {
         (async () => {
           try {
             const response = await api.get("/api/scores");
-            return arrayFromResponse(response.data, "scores");
+            return arrayFromResponse(response.data, "data");
           } catch {
             return [];
           }
