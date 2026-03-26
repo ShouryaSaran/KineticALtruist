@@ -8,7 +8,7 @@ const router = express.Router();
 
 const cookieOptions = {
   httpOnly: true,
-  sameSite: 'strict',
+  sameSite: process.env.NODE_ENV === 'production' ? 'none' : 'lax',
   secure: process.env.NODE_ENV === 'production',
   maxAge: 7 * 24 * 60 * 60 * 1000,
 };
@@ -35,7 +35,8 @@ router.post('/signup', async (req, res) => {
       .single();
 
     if (error) {
-      return res.status(400).json({ error: error.message });
+      console.error('Signup error:', error);
+      return res.status(400).json({ error: error.message || 'Failed to create user' });
     }
 
     const token = jwt.sign(
@@ -52,6 +53,7 @@ router.post('/signup', async (req, res) => {
 
     return res.status(201).json({ user });
   } catch (error) {
+    console.error('Signup exception:', error);
     return res.status(500).json({ error: 'Failed to sign up user' });
   }
 });
