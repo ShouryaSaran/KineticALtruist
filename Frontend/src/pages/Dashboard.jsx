@@ -158,7 +158,7 @@ export default function Dashboard() {
     return () => {
       isMounted = false;
     };
-  }, []);
+  }, [location]);
 
   const drawDate = draw?.draw_date ?? draw?.drawDate ?? draw?.scheduled_for ?? null;
   const countdown = useMemo(() => toCountdown(drawDate || nowTick), [drawDate, nowTick]);
