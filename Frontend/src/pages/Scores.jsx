@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../styles/Scores.css";
 import {
@@ -62,7 +62,7 @@ export default function Scores() {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
 
-  const fetchScores = async () => {
+  const fetchScores = useCallback(async () => {
     try {
       const response = await api.get("/api/scores");
       const payload = Array.isArray(response.data?.data)
@@ -74,7 +74,7 @@ export default function Scores() {
     } catch {
       setScores([]);
     }
-  };
+  }, []);
 
   useEffect(() => {
     let alive = true;
@@ -145,15 +145,23 @@ export default function Scores() {
     setSuccess("");
 
     try {
-      await api.post("/api/scores", {
+      const response = await api.post("/api/scores", {
         score: Number(scoreInput),
         date: dateInput,
       });
 
+      // Immediately add the new score to the state
+      const newScore = response.data?.data || response.data;
+      if (newScore && typeof newScore === 'object') {
+        setScores(prev => [newScore, ...prev]);
+      } else {
+        // If response structure is different, fetch all scores
+        await fetchScores();
+      }
+
       setScoreInput("");
       setDateInput("");
       setSuccess("Score added successfully!");
-      await fetchScores();
     } catch (err) {
       setError(err?.response?.data?.error || "Failed to add score.");
     } finally {
