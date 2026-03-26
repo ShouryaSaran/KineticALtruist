@@ -6,49 +6,53 @@ export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    const checkAuth = async () => {
-      try {
-        const response = await api.get("/api/auth/me");
-        setUser(response.data?.user ?? response.data ?? null);
-      } catch {
-        setUser(null);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    checkAuth();
+  const checkAuth = useCallback(async () => {
+    try {
+      const response = await api.get("/api/auth/me");
+      setUser(response.data?.user ?? response.data ?? null);
+    } catch {
+      setUser(null);
+    } finally {
+      setLoading(false);
+    }
   }, []);
 
-    const login = useCallback(async (email, password) => {
+  useEffect(() => {
+    checkAuth();
+  }, [checkAuth]);
+
+  const login = useCallback(async (email, password) => {
     await api.post("/api/auth/login", { email, password });
     const response = await api.get("/api/auth/me");
     const resolvedUser = response.data?.user ?? response.data ?? null;
     setUser(resolvedUser);
     return resolvedUser;
-    }, []);
+  }, []);
 
-    const signup = useCallback(async (email, password, name) => {
+  const signup = useCallback(async (email, password, name) => {
     await api.post("/api/auth/signup", { email, password, name });
     const response = await api.get("/api/auth/me");
     const resolvedUser = response.data?.user ?? response.data ?? null;
     setUser(resolvedUser);
     return resolvedUser;
-    }, []);
+  }, []);
 
-    const logout = useCallback(async () => {
+  const logout = useCallback(async () => {
+    setLoading(true);
     try {
-        await api.post("/api/auth/logout");
+      await api.post("/api/auth/logout");
+    } catch (error) {
+      console.error("Logout error:", error);
     } finally {
-        setUser(null);
+      setUser(null);
+      setLoading(false);
     }
-    }, []);
+  }, []);
 
-    const value = useMemo(
+  const value = useMemo(
     () => ({ user, loading, login, signup, logout }),
     [user, loading, login, signup, logout]
-    );
+  );
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 };

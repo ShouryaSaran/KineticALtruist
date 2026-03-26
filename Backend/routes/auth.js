@@ -52,8 +52,8 @@ router.post('/signup', async (req, res) => {
 
     return res.status(201).json({ user });
   } catch (error) {
-    console.error('Signup exception:', error);
-    
+    return res.status(500).json({ error: 'Failed to sign up user' });
+  }
 });
 
 router.post('/login', async (req, res) => {
@@ -111,11 +111,7 @@ router.post('/login', async (req, res) => {
 
 router.post('/logout', async (req, res) => {
   try {
-    res.clearCookie('token', {
-      httpOnly: true,
-      sameSite: 'strict',
-      secure: process.env.NODE_ENV === 'production',
-    });
+    res.clearCookie('token', cookieOptions);
 
     return res.json({ data: { success: true } });
   } catch (error) {
